@@ -6,6 +6,11 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // middleware 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+    });
 app.use(cors());
 app.use(express.json())
 
